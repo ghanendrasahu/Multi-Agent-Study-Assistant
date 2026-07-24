@@ -147,6 +147,57 @@ Multi-Agent-Study-Assistant/
 6. **Fallback design** — max_iterations guard prevents infinite critique loops
 7. **Tool abstraction** — tools are just Python functions with typed inputs; the LLM decides when to call them
 
+
+## 🗺️ Future Roadmap
+
+Ideas to take this project further — great for contributors, forks, or your next version:
+
+### 🔧 Core Architecture Upgrades
+| Upgrade | Why |
+|---|---|
+| **Replace manual graph with real LangGraph `StateGraph`** | Currently the graph is a manual loop; using `langgraph.graph.StateGraph` would give proper checkpointing, streaming, and branching |
+| **Add streaming (token-by-token)** | Stream LLM output through SSE to the UI — shows agents "thinking" in real time |
+| **Human-in-the-loop approval gate** | Pause before Finaliser writes to memory; let the user review and approve/reject |
+| **Parallel agent execution** | Researcher could run Wikipedia + DuckDuckGo + memory retrieval in parallel, not sequentially |
+| **Long context summarisation** | Use map-reduce summarisation when retrieved docs exceed context window |
+
+### 🧠 Agent Enhancements
+| Idea | Benefit |
+|---|---|
+| **Planner agent** (adds a Plan-and-Execute phase before Researcher) | Generates a research plan first — more systematic, less hallucination |
+| **Memory agent** (dedicated to managing ChromaDB — summarise, prune, merge notes) | Prevents memory bloat, keeps notes high quality |
+| **Multi-language support** | Pass language to Wikipedia and prompt the LLM to respond in the user's language |
+| **PDF/image analysis agent** | Upload a PDF of a paper or a slide screenshot and have the agents study it |
+| **Code executor agent** | Let the agent write and run Python snippets (sandboxed) to demonstrate concepts with code |
+
+### 📊 UI / UX Improvements
+| Idea | Benefit |
+|---|---|
+| **Dark/light theme toggle** | User preference persistence |
+| **Session history sidebar** | Browse past queries, re-run them, compare answers |
+| **Export to PDF / Anki / Notion** | Download study notes as structured formats for import into other tools |
+| **Spaced repetition scheduling** | Track what you studied and when to revisit it — like Anki but powered by the agent |
+| **Query suggestions based on memory** | "You studied transformers last time — want to learn about attention variants next?" |
+
+### 🧪 Production Readiness
+| Area | Suggestion |
+|---|---|
+| **Testing** | Add pytest tests for each agent node, the orchestrator, and vector store CRUD |
+| **CI/CD** | GitHub Actions: lint, type-check, test on every push |
+| **Docker** | `Dockerfile` + `docker-compose.yml` for one-command deploy anywhere |
+| **Logging** | Replace `print()` with structured logging (loguru or structlog) |
+| **Rate limiting / cost control** | Track token usage per session, cap max spend |
+| **Caching** | Cache Wikipedia + DuckDuckGo results so repeated queries don't burn API calls |
+
+### 🌐 Community & Sharing
+| Idea | Benefit |
+|---|---|
+| **Public memory bank** | Share anonymised study notes so others benefit from your agent's knowledge |
+| **Study groups** | Multiple users share a memory namespace — collaborative learning |
+| **Plugin system** | Third-party tools (Wolfram Alpha, ArXiv, YouTube transcripts) as pluggable tools |
+| **API endpoint** | Expose the agent pipeline via FastAPI so other apps can call it |
+| **Mobile-friendly UI** | Responsive Streamlit layout + mobile PWA support |
+
 ---
 
 ## 🐞 Report an Issue
