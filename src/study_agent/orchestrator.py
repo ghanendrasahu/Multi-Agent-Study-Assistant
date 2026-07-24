@@ -26,12 +26,12 @@ from __future__ import annotations
 import uuid
 from typing import Optional, Callable
 
-from agents.state import AgentState
-from agents.researcher import researcher_node
-from agents.analyst import analyst_node
-from agents.critic import critic_node, route_after_critique
-from agents.finaliser import finaliser_node
-from memory.vector_store import VectorMemory
+from study_agent.agents.state import AgentState
+from study_agent.agents.researcher import researcher_node
+from study_agent.agents.analyst import analyst_node
+from study_agent.agents.critic import critic_node, route_after_critique
+from study_agent.agents.finaliser import finaliser_node
+from study_agent.memory.vector_store import VectorMemory
 
 
 def build_graph(llm, memory: VectorMemory) -> "StudyAgentGraph":

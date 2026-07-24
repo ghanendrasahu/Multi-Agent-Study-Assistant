@@ -79,9 +79,9 @@ def main():
     info("Demonstrating: GenAI + Agentic AI + RAG + Multi-Agent Orchestration")
 
     # ── Initialise components ──────────────────────────────────────────────
-    from llm_factory import get_llm
-    from memory.vector_store import VectorMemory
-    from orchestrator import build_graph
+    from study_agent.llm_factory import get_llm
+    from study_agent.memory.vector_store import VectorMemory
+    from study_agent.orchestrator import build_graph
 
     try:
         llm = get_llm(provider=args.provider)

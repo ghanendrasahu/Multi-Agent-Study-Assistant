@@ -21,7 +21,7 @@ import re
 
 from langchain_core.messages import AIMessage, HumanMessage, SystemMessage
 
-from agents.state import AgentState
+from study_agent.agents.state import AgentState
 
 
 CRITIC_SYSTEM_PROMPT = """You are a strict but fair academic reviewer evaluating \

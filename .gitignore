@@ -16,10 +16,12 @@ __pycache__/
 .DS_Store
 Thumbs.db
 
-# ── Stray version files at root ───────────────────────────────────────
-[0-9]*.[0-9]*
-[0-9]*.[0-9]*.[0-9]*
+# ── Build / Dist ──────────────────────────────────────────────────────
+*.egg-info/
+dist/
+build/
 
-# ── Project specific ──────────────────────────────────────────────────
-study_agent/chroma_db/
+# ── Project ───────────────────────────────────────────────────────────
+data/chroma_db/
 *.sqlite3
+scripts/*.py

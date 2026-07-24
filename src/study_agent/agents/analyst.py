@@ -18,7 +18,7 @@ from __future__ import annotations
 
 from langchain_core.messages import AIMessage, HumanMessage, SystemMessage
 
-from agents.state import AgentState
+from study_agent.agents.state import AgentState
 
 
 # ── Few-shot example embedded in system prompt ─────────────────────────────

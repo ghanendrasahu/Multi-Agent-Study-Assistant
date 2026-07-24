@@ -1,0 +1,54 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.backends._legacy:_Backend"
+
+[project]
+name = "study-agent"
+version = "1.0.0"
+description = "Multi-Agent Study Assistant — GenAI + Agentic AI + RAG + Multi-Agent Orchestration"
+readme = "README.md"
+requires-python = ">=3.11"
+license = {text = "MIT"}
+authors = [
+    {name = "Ghanendra Sahu", email = "ghanendrasahu@example.com"},
+]
+keywords = ["ai", "agents", "langgraph", "rag", "chromadb", "streamlit"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Education",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Programming Language :: Python :: 3.11",
+    "License :: OSI Approved :: MIT License",
+]
+dependencies = [
+    "openai>=1.30.0",
+    "langchain>=0.2.0",
+    "langchain-openai>=0.1.0",
+    "langchain-community>=0.2.0",
+    "langchain-core>=0.2.0",
+    "langgraph>=0.1.0",
+    "chromadb>=0.5.0",
+    "sentence-transformers>=3.0.0",
+    "streamlit>=1.35.0",
+    "wikipedia-api>=0.6.0",
+    "duckduckgo-search>=6.0.0",
+    "pydantic>=2.0.0",
+    "python-dotenv>=1.0.0",
+    "rich>=13.0.0",
+    "tiktoken>=0.7.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/ghanendrasahu/Multi-Agent-Study-Assistant"
+Repository = "https://github.com/ghanendrasahu/Multi-Agent-Study-Assistant.git"
+
+[project.scripts]
+study-agent = "study_agent.__main__:main"
+study-agent-ui = "study_agent.app:run"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["study_agent*"]
+
+[tool.setuptools.package-data]
+"study_agent" = ["py.typed"]

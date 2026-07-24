@@ -167,9 +167,9 @@ if run_button and query.strip():
 
     # Import here to avoid startup errors if deps missing
     try:
-        from llm_factory import get_llm
-        from memory.vector_store import VectorMemory
-        from orchestrator import build_graph
+        from study_agent.llm_factory import get_llm
+        from study_agent.memory.vector_store import VectorMemory
+        from study_agent.orchestrator import build_graph
     except Exception as e:
         st.error(f"Import error: {e}\n\nRun: pip install -r requirements.txt")
         st.stop()
@@ -178,7 +178,7 @@ if run_button and query.strip():
     os.environ["__STUDY_AGENT_PROVIDER"] = provider
 
     # Monkeypatch the auto-detect to use UI selection
-    import llm_factory as _lf
+    import study_agent.llm_factory as _lf
     _orig = _lf._auto_detect_provider
     _lf._auto_detect_provider = lambda: provider
 
@@ -299,7 +299,7 @@ st.subheader("🧠 Long-Term Memory Browser")
 st.caption("Notes saved to ChromaDB — persisted across sessions, retrieved by semantic similarity")
 
 try:
-    from memory.vector_store import VectorMemory
+    from study_agent.memory.vector_store import VectorMemory
     mem = VectorMemory()
     topics = mem.list_topics()
     count = mem.count()

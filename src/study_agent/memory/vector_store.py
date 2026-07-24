@@ -23,7 +23,7 @@ from __future__ import annotations
 import os
 from typing import Optional
 
-CHROMA_PERSIST_DIR = os.path.join(os.path.dirname(__file__), "..", "chroma_db")
+CHROMA_PERSIST_DIR = os.path.join(os.path.dirname(__file__), "..", "..", "..", "data", "chroma_db")
 COLLECTION_NAME = "study_notes"
 EMBEDDING_MODEL = "all-MiniLM-L6-v2"  # Free, fast, 384 dimensions
 

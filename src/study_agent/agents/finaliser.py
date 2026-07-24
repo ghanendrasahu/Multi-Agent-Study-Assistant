@@ -20,8 +20,8 @@ from datetime import datetime
 
 from langchain_core.messages import AIMessage, HumanMessage, SystemMessage
 
-from agents.state import AgentState
-from memory.vector_store import VectorMemory
+from study_agent.agents.state import AgentState
+from study_agent.memory.vector_store import VectorMemory
 
 
 FINALISER_SYSTEM_PROMPT = """You are the final editor of an AI study assistant. \
